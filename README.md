@@ -10,6 +10,10 @@ My cpp General Functions
 My cpp General Functions is a collection of my personal c++ functions
 for general use and console.
 
+![image](https://user-images.githubusercontent.com/121726699/214980993-35dd3e1a-08f5-41a2-9a90-49e4086d1b88.png)
+
+
+
 -----------------------------------------------------------------------------------------------------------------------------
 Requirements:
 
