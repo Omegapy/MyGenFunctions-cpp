@@ -13,7 +13,7 @@ for general use and console.
 -----------------------------------------------------------------------------------------------------------------------------
 Requirements:
 
-c++ 17 or later
+c++ 17 or later  
 MS Windows 10 or later
 
 -----------------------------------------------------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ MS Windows 10 or later
 -----------------------------------------------------------------------------------------------------------------------------
 
 Links:  
- Project GitHub: https://github.com/Omegapy/MyGenFunctions-cpp 
- GitHub: https://github.com/Omegapy  
+ Project GitHub: https://github.com/Omegapy/MyGenFunctions-cpp  
+ GitHub: https://github.com/Omegapy   
  YouTube: https://www.youtube.com/@omegapy (new)  
 
