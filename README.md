@@ -23,100 +23,33 @@ MS Windows 10 or later
 -----------------------------------------------------------------------------------------------------------------------------
 
 ```cpp
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
- //----------------------------------------- General Functions ---------------------------------------------------
- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  
- /*-------------------------------------------------
+/----------------------------------------- General Functions
 
-	Load files
-	Handle load file exception.
-	Load data into a string vector
-	utilizing end-of-line as a separator,
-	and returns vector.
-
-	Requirement:
-		ifstream
-
- --------------------------------------------------*/
+// Load files, Handle load file exception. Load data into a string vector utilizing end-of-line as a separator,
+// and returns vector.
 vector<string> loadFile(string filePath);
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//----------------------------------------- Console Functions ---------------------------------------------------
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//----------------------------------------- Console Functions
 
-/*-------------------------------------------------
-
-	Accepts and validates the user input
-	if it is an integer.
-	Takes a string as an argument
-	(question to be displayed),
-	and returns the validated integer input.
-
-	Requirement:
-		iostream
-
- --------------------------------------------------*/
+// Accepts and validates the user input if it is an integer. Takes a string as an argument (question to be displayed),
+// and returns the validated integer input.
 int intCheckInput(string question);
 
-/*----------------------------------------------------
-
-	Clears the console screen.
-
- ----------------------------------------------------*/
+// Clears the console screen.
 void clearScreen(unsigned numLinesToClear);
 
-/*----------------------------------------------------
-
-	Waits for a key to be pressed.
-
-	Requirement:
-		conio.h
-		clearScreen()
-
- ----------------------------------------------------*/
+// Waits for a key to be pressed.
 void pressKeyToContinue(unsigned numLinesToClear);
 
-/*----------------------------------------------------
-
-	Displays banner
-
-	Requirement:
-		iostream
-		string
-
- ----------------------------------------------------*/
+// Displays banner
 void displayBanner(string title);
 
-/*----------------------------------------------------
-
-	Displays a table of data string in the console
-
-	Requirement:
-		iostream
-		string
-
- ----------------------------------------------------*/
+// Displays a table of data string in the console
 void displayTable(string tableName, vector<string> &colNames, vector<vector<string>> &dataRows);
 
-/*------------------------------------------------------
-
-	Sets size of the Console's window
-	and position the console in desktop screen
-	utilizing the variable positionConsole
-
-	position_console values:
-		"center", "leftCenter", "rightCenter",
-		"topLeft", "topCenter", "topRight",
-		"bottomLeft", "bottomCenter", "bottomRight".
-
-	Requirement:
-		Windows OS
-		string
-		windows.h
-
- --------------------------------------------------------*/
+// Sets size of the Console's window and position the console in desktop screen
 void consoleSize(int consoleWidth, int consoleHeight, string positionConsole);
+
 ```
 
 -----------------------------------------------------------------------------------------------------------------------------
