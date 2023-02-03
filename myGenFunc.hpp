@@ -46,15 +46,17 @@ MS Windows 10 or later
  ---------------------------------****************************************---------------------------------*/
  //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
- #include <iostream>		
- #include <cmath>
- #include <string>
- #include <vector>
- #include <fstream>
- #include <windows.h>
- #include <conio.h> // getch()
+#include <iostream>		
+#include <cmath>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <windows.h>
+#include <conio.h>      // getch()
+#include <iomanip>      // std::setprecision
+#include <sstream>      // doubleDiplayDecimal()
 
- //using namespace std;
+using namespace std;
 
 
 #include "header.hpp"
@@ -94,14 +96,44 @@ MS Windows 10 or later
 	and returns vector.
 
 	Requirement:
-		ifstream
+		#include <string>
+		#include <fstream>
+
+
+  --------------------------------------------------*/
+vector<string> loadFile(string filePath);
+
+/*-------------------------------------------------
+
+   Rounds a double to a wanted decimal place.
+
+   Requirement:
+		#include <cmath>
 
  --------------------------------------------------*/
-vector<string> loadFile(string filePath);
+double roundToDecimal(double num, unsigned numDecimal);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //----------------------------------------- Console Functions ---------------------------------------------------
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*-------------------------------------------------
+
+   When converting a double to string
+   and then displayed.
+   c++ will display all the double decimals.
+
+   doubleToStringDecimal() will round the double
+   to the wanted decimal place,
+
+   Requirement:
+		#include <iostream>	
+		#include <string>
+		#include <sstream>
+		RoundToDecimal()
+
+ --------------------------------------------------*/
+string doubleToStringDecimal(double num, unsigned numDecimal);
 
 /*-------------------------------------------------
 
@@ -111,8 +143,10 @@ vector<string> loadFile(string filePath);
 	(question to be displayed),
 	and returns the validated integer input.
 
-	Requirement:
-		iostream
+	Requirement:	
+		#include <iostream>		
+		#include <cmath>
+		#include <string>
 
  --------------------------------------------------*/
 int intCheckInput(string question);
@@ -120,6 +154,9 @@ int intCheckInput(string question);
 /*----------------------------------------------------
 
 	Clears the console screen.
+	
+	Requirement:
+		#include <iostream>
 
  ----------------------------------------------------*/
 void clearScreen(unsigned numLinesToClear);
@@ -128,8 +165,9 @@ void clearScreen(unsigned numLinesToClear);
 
 	Waits for a key to be pressed.
 
-	Requirement:
-		conio.h
+	Requirement:	
+		#include <iostream>		
+		#include <conio.h>      
 		clearScreen()
 
  ----------------------------------------------------*/
@@ -140,8 +178,8 @@ void pressKeyToContinue(unsigned numLinesToClear);
 	Displays banner
 
 	Requirement:
-		iostream
-		string
+		#include <iostream>
+		#include <string>
 
  ----------------------------------------------------*/
 void displayBanner(string title);
@@ -151,8 +189,8 @@ void displayBanner(string title);
 	Displays a table of data string in the console
 
 	Requirement:
-		iostream
-		string
+		#include <iostream>		
+		#include <string>
 
  ----------------------------------------------------*/
 void displayTable(string tableName, vector<string> &colNames, vector<vector<string>> &dataRows);
@@ -169,9 +207,9 @@ void displayTable(string tableName, vector<string> &colNames, vector<vector<stri
 		"bottomLeft", "bottomCenter", "bottomRight".
 
 	Requirement:
-		Windows OS
-		string
-		windows.h
+		#include <iostream>
+		#include <string>
+		#include <windows.h>
 
  --------------------------------------------------------*/
 void consoleSize(int consoleWidth, int consoleHeight, string positionConsole);
@@ -192,6 +230,21 @@ void consoleSize(int consoleWidth, int consoleHeight, string positionConsole);
  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  
 
+//--------------------------------------------------------------------- Function roundToDecimal()
+/*-------------------------------------------------
+
+   Rounds a double to a wanted decimal place.
+
+   Requirement:
+		#include <cmath>
+
+ --------------------------------------------------*/
+double roundToDecimal(double num, unsigned numDecimal)
+{
+	return round(num * 10.0 * numDecimal) / (10.0 * numDecimal); // Rounds to nearest to the wanted decimal
+}
+
+
 //--------------------------------------------------------------------- Function LoadFile()
 /*-------------------------------------------------
 
@@ -202,7 +255,8 @@ void consoleSize(int consoleWidth, int consoleHeight, string positionConsole);
 	and returns vector.
 
 	Requirement:
-		ifstream
+		#include <string>
+		#include <fstream>
 
  --------------------------------------------------*/
 vector<string> loadFile(string filePath) 
@@ -244,6 +298,30 @@ vector<string> loadFile(string filePath)
 //----------------------------------------- Console Functions ---------------------------------------------------
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//--------------------------------------------------------------------- Function doubleToStringDecimal()
+/*-------------------------------------------------
+
+   When converting a double to string
+   and then displayed.
+   c++ will display all the double decimals.
+
+   doubleToStringDecimal() will round the double
+   to the wanted decimal place,
+
+   Requirement:
+		#include <iostream>
+		#include <string>
+		#include <sstream>
+		RoundToDecimal()
+
+ --------------------------------------------------*/
+string doubleToStringDecimal(double num, unsigned numDecimal)
+{
+	stringstream twoDecimal;
+	num = roundToDecimal(num, numDecimal);
+	twoDecimal << fixed << setprecision(numDecimal) << num;
+	return twoDecimal.str();
+}
 
 //--------------------------------------------------------------------- Function intCheckInput()
 /*-------------------------------------------------
@@ -255,7 +333,9 @@ vector<string> loadFile(string filePath)
 	and returns the validated integer input.
 
 	Requirement:
-		iostream
+		#include <iostream>
+		#include <cmath>
+		#include <string>
 
  --------------------------------------------------*/
 int intCheckInput(string question) 
@@ -286,7 +366,10 @@ int intCheckInput(string question)
 //--------------------------------------------------------------------- Function clearScreen()
 /*----------------------------------------------------
                                        
-	Clears the console screen.          
+	Clears the console screen.
+	
+	Requirement:	
+		#include <iostream>
                                      
  ----------------------------------------------------*/
 void clearScreen(unsigned numLinesToClear) 
@@ -305,7 +388,8 @@ void clearScreen(unsigned numLinesToClear)
 	Waits for a key to be pressed. 
 
 	Requirement:
-		conio.h
+		#include <iostream>
+		#include <conio.h> 
 		clearScreen()
                                    
  ----------------------------------------------------*/
@@ -327,8 +411,8 @@ void pressKeyToContinue(unsigned numLinesToClear)
 	Displays banner
 
 	Requirement:
-		iostream
-		string
+		#include <iostream>
+		#include <string>
 
  ----------------------------------------------------*/
 void displayBanner(string title)
@@ -364,8 +448,9 @@ void displayBanner(string title)
 	Displays a table of data string in the console
 
 	Requirement:
-		iostream
-		string
+		#include <iostream>
+		#include <string>
+		#include <vector>
 
  ----------------------------------------------------*/
 void displayTable(string tableName, vector<string> &colNames, vector<vector<string>> &dataRows)
@@ -466,8 +551,8 @@ void displayTable(string tableName, vector<string> &colNames, vector<vector<stri
 
 	Requirement:
 		Windows OS
-		string
-		windows.h
+		#include<string>
+		#include<windows.h>
                                                                                        
  --------------------------------------------------------*/
 void consoleSize(int consoleWidth, int consoleHeight,  string positionConsole)
